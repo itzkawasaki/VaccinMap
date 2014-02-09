@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Talkmob / Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <script type="text/javascript" src="./public/javascripts/knockout-3.0.0.js"></script>
+
+  </head>
+  <body>
+    <div class='liveExample'>   
+        <p>First name: <input data-bind='value: firstName' /></p> 
+        <p>Last name: <input data-bind='value: lastName' /></p> 
+        <h2>Hello, <span data-bind='text: fullName'> </span>!</h2>  
+        <span data-bind='text: head'> </span>
+    </div>
+    <script type="text/javascript">
+    
+var data ='{'+
+'  "head": {'+
+'    "vars": [ "byoin" , "address" , "wakuchin_name" ]'+
+'  } ,'+
+'  "results": {'+
+'    "bindings": ['+
+'      {'+
+'        "byoin": { "type": "literal" , "value": "古川病院" } ,'+
+'        "address": { "type": "literal" , "value": "横浜市神奈川区子安通２－２８６　" } ,'+
+'        "wakuchin_name": { "type": "literal" , "value": "二種混合" }'+
+'      } ,'+
+'      {'+
+'        "byoin": { "type": "literal" , "value": "古川病院" } ,'+
+'        "address": { "type": "literal" , "value": "横浜市神奈川区子安通２－２８６　" } ,'+
+'        "wakuchin_name": { "type": "literal" , "value": "日本脳炎２期" }'+
+'      } '+
+'    ]'+
+'  }'+
+'}';
+
+var viewModel = ko.mapping.fromJS(data);
+ko.mapping.fromJS(data, viewModel);
+
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+html
+  head
+    title Talkmob / Welcome
+    meta(charset='UTF-8' name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+    script(type='text/javascript', src='javascripts/knockout-3.0.0.js')
+  body
+    .liveExample
+    form.form-horizontal(action="/", method="post")
+          p
+            | First name:
+            input(data-bind='value: firstName' name='hospital')
+          p
+            | Last name:
+            input(data-bind='value: lastName')
+          h2
+            | Hello,
+            span(data-bind='text: fullName')
+            | !
+            |  ttile: #{title}
+            span(data-bind='text: head')
+          input.btn.btn-large(type="submit", value="検索")
+          if datalist == null
+            | asf
+          else
+            | sdsds string:#{datalist}
+
+            each item in datalist
+              #{item.toString()}
+
+
+
+    script(type='text/javascript', src='javascripts/ko.js')

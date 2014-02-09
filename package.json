@@ -1,0 +1,39 @@
+{
+  "name": "vaccinMap",
+  "version": "0.0.1",
+  "private": true,
+  "description": "hoge",
+  "keywords": ["keywords","d"],
+  "bugs": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/"
+    }
+  ],
+  "contributors": "hoge",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": {
+    "name": "meganehiroshi",
+    "email": "ps008006@yahoo.co.jp"
+  },
+  "dependencies": {
+    "express": "3.1.0",
+    "jade": "*",
+    "request":"*",
+    "xmljson":"*"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+ "homepage": "https://github.com/"
+}

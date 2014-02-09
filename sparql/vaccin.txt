@@ -1,0 +1,1 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX jrrk: <http://purl.org/jrrk#>select distinct ?labelWHERE{  GRAPH ?g{     ?s a jrrk:Vaccination.     ?s rdfs:label ?label.  } }
