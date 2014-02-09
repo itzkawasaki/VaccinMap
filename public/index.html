@@ -37,9 +37,40 @@
                 <h2 class="sub-header">
                      <span></span>
                 </h2>
-                <div class="well sidebar-nav">
-                  <select size='12' style="width:100%" data-bind="options: vaccinList, selectedOptions: inputKeyword"> </select>
-                </div>
+
+
+				<div class="tabbable"> <!-- Only required for left/right tabs -->
+					  <ul class="nav nav-tabs">
+					    <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-medkit fa-2x"></i></a></li>
+					    <li><a href="#tab2" data-toggle="tab"><i class="fa fa-hospital-o fa-2x"></i></a></li>
+					    <li><a href="#tab3" data-toggle="tab"><i class="fa fa-calendar fa-2x"></i></a></li>
+					  </ul>
+					  <div class="tab-content">
+						    <div class="tab-pane active" id="tab1">
+						        <p>予防接種から検索</p>
+			                    <select size='12' style="width:100%" data-bind="options: vaccinList, selectedOptions: inputKeyword"> </select>
+						    </div>
+						    <div class="tab-pane" id="tab2">
+							      <p>住所から検索</p>
+				                  <div class="input-append">
+					                  <input id="address" type="textbox" value="横浜駅" class="" placeholder="住所から近くの病院を検索">
+					                  <button class="btn btn-success fa fa-search" href="#"  onclick="codeAddress()"></button>
+					              </div>
+						    </div>
+		                    <div class="tab-pane" id="tab3">
+		                          <p>年齢から可能な予防接種を調べる</p>
+		                          <ul>
+		                              <li class="alert alert-success">asfasdfa</li>
+                                      <li class="alert alert-success">asfasdfa</li>
+                                      <li class="alert alert-success">asfasdfa</li>
+                                      <li class="alert alert-info">asfasdfa</li>
+		                          </ul>
+		                    </div>
+					  </div>
+				</div>
+
+
+
             </div>
 
 		    <div class="span9">
