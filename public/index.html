@@ -11,6 +11,32 @@
     <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
     <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="stylesheets/datepicker.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
+    <script src="javascripts/ga.js" type="text/javascript"></script>
+    <script src="javascripts/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="javascripts/locales/bootstrap-datepicker.ja.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+
+    $(function() {
+        $('#dp1').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            clearBtn: true
+        });
+    });
+
+</script>
+
+<style type="text/css">
+.alert{
+	margin-bottom:10px ;
+	padding:5px;
+}
+</style>
   </head>
   <body style="padding-top: 50px;">
 
@@ -21,10 +47,7 @@
 	    </div>
 	    <div class="navbar-collapse collapse">
 	      <div class="navbar-form navbar-right">
-	          <div class="input-append">
-	              <input id="address" type="textbox" value="横浜駅" class="span3" placeholder="住所から近くの病院を検索">
-	              <button class="btn btn-success fa fa-search" href="#"  onclick="codeAddress()"></button>
-              </div>
+
 	      </div>
 	    </div>
 	  </div>
@@ -33,7 +56,7 @@
     <div class="container">
 		<div class="row-fluid">
 
-            <div class="span3 bs-docs-sidebar">
+            <div class="span4 bs-docs-sidebar">
                 <h2 class="sub-header">
                      <span></span>
                 </h2>
@@ -41,14 +64,45 @@
 
 				<div class="tabbable"> <!-- Only required for left/right tabs -->
 					  <ul class="nav nav-tabs">
-					    <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-medkit fa-2x"></i></a></li>
-					    <li><a href="#tab2" data-toggle="tab"><i class="fa fa-hospital-o fa-2x"></i></a></li>
-					    <li><a href="#tab3" data-toggle="tab"><i class="fa fa-calendar fa-2x"></i></a></li>
+					    <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-medkit fa-1x"></i></a></li>
+					    <li><a href="#tab2" data-toggle="tab"><i class="fa fa-hospital-o fa-1x"></i></a></li>
+					    <li><a href="#tab3" data-toggle="tab"><i class="fa fa-calendar fa-1x"></i></a></li>
 					  </ul>
 					  <div class="tab-content">
 						    <div class="tab-pane active" id="tab1">
 						        <p>予防接種から検索</p>
 			                    <select size='12' style="width:100%" data-bind="options: vaccinList, selectedOptions: inputKeyword"> </select>
+                                <div class="input-prepend input-append">
+                                    <span class="add-on">横浜市</span>
+                                    <input id="address" type="textbox" value="" class="" placeholder="区以下から入力してください">
+                                    <button class="btn btn-success fa fa-search" href="#"  onclick="codeAddress()"></button>
+                                </div>
+
+					                    <div class="row-fluid" style="height:300px;overflow: scroll;margin-bottom:100px">
+						                    <div class="table-responsive" >
+						                    <table class="table table-striped">
+						                      <thead>
+						                        <tr>
+						                          <th>病院</th>
+						                          <th>住所</th>
+						                          <th style="min-width: 100px;">電話</th>
+						                        </tr>
+						                      </thead>
+						                      <tbody data-bind="foreach: items" >
+						                        <tr>
+						                          <td data-bind="text:hospital"></td>
+						                          <td data-bind="text:address"></td>
+						                          <td>
+						                               <a data-bind="attr: { href: tel_a, target: '_blank' }">
+						                                   <span data-bind="text:tel"></span>
+						                               </a>
+						                          </td>
+						                        </tr>
+						                      </tbody>
+						                    </table>
+						                    </div>
+						                </div>
+
 						    </div>
 						    <div class="tab-pane" id="tab2">
 							      <p>住所から検索</p>
@@ -58,13 +112,57 @@
 					              </div>
 						    </div>
 		                    <div class="tab-pane" id="tab3">
-		                          <p>年齢から可能な予防接種を調べる</p>
-		                          <ul>
-		                              <li class="alert alert-success">asfasdfa</li>
-                                      <li class="alert alert-success">asfasdfa</li>
-                                      <li class="alert alert-success">asfasdfa</li>
-                                      <li class="alert alert-info">asfasdfa</li>
+		                          <p>年齢から接種可能な予防接種を調べる</p>
+		                          <input id="dp1" maxlength="10" type="text">
+		                          <ul  style="height:300px;overflow: scroll;">
+		                              <li class="alert alert-success">
+		                                  <p><strong>小児用肺炎球菌</strong></p>
+    		                              <small class="muted">[1期初回]生後3か月～12か月の間に20日～56日の間隔で3回</small>
+		                              </li>
+                                      <li class="alert alert-success">
+                                          <p><strong>小児用肺炎球菌</strong></p>
+                                          <small class="muted">[1期初回]生後3か月～12か月の間に20日～56日の間隔で3回</small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                       <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
+                                      <li class="alert alert-success">
+                                          <p>Someone</p>
+                                          <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                      </li>
 		                          </ul>
+
+                                <div class="input-prepend input-append">
+                                    <span class="add-on">横浜市</span>
+                                    <input id="address" type="textbox" value="" class="" placeholder="区以下から入力してください">
+                                    <button class="btn btn-success fa fa-search" href="#"  onclick="codeAddress()"></button>
+                                </div>
+
 		                    </div>
 					  </div>
 				</div>
@@ -73,7 +171,7 @@
 
             </div>
 
-		    <div class="span9">
+		    <div class="span8">
 		        <h2 class="sub-header">
                      <span></span>
                 </h2>
@@ -83,34 +181,13 @@
                         <h3 data-bind="text:serchKeyword"> </h3>
                       </blockquote>
                     </h2>
-					<div id="map_canvas" style="width:100%; height:300px"></div>
+					<div id="map_canvas" style="width:100%; height:500px"></div>
 
                 </div>
 
-                <div class="row-fluid">
-					<div class="table-responsive" >
-					<table class="table table-striped">
-					  <thead>
-					    <tr>
-					      <th>病院</th>
-					      <th>住所</th>
-					      <th style="min-width: 100px;">電話</th>
-					    </tr>
-					  </thead>
-					  <tbody data-bind="foreach: items" >
-					    <tr>
-					      <td data-bind="text:hospital"></td>
-					      <td data-bind="text:address"></td>
-					      <td>
-					           <a data-bind="attr: { href: tel_a, target: '_blank' }">
-					               <span data-bind="text:tel"></span>
-					           </a>
-					      </td>
-					    </tr>
-					  </tbody>
-					</table>
-					</div>
-				</div>
+
+
+
 			</div>
 		</div>
 	</div>
@@ -121,11 +198,15 @@
 <script src="javascripts/sample.js" type="text/javascript"></script>
 <script src="javascripts/data.js" type="text/javascript"></script>
 
+
+
+
 <script>
 var listVaccin =[];
 var listlist=[];
 $(document).ready(function(){
 	initialize();
+
 });
 
 
@@ -194,6 +275,8 @@ function AppViewModel() {
 $(function(){
    ko.applyBindings(new AppViewModel());
 });
+
+
 
 
 </script>

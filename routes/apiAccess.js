@@ -17,6 +17,7 @@ exports.getData = function(app){
 
         //APIの取得
     	getApi(query ,function(err,resdata){
+    		console.log(resdata);
     		res.send(resdata);
     	});
   	});
