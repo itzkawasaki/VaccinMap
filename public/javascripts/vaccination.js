@@ -22,9 +22,9 @@ var vaccinationList =
  *
  */
 function getSchedule() {
-  
+
   var userAge = calcAge();
-  
+
   var array = new Array();
   array.push(vaccination1(userAge));
   array.push(vaccination2(userAge));
@@ -37,9 +37,9 @@ function getSchedule() {
   array.push(vaccination9(userAge));
   array.push(vaccination10(userAge));
   array.push(vaccination11(userAge));
-  
+
   return array;
-  
+
 }
 
 /*
@@ -67,7 +67,7 @@ function calcAge(){
   myNow = new Date();
   myBirth = new Date( 1970, 0, $("#birthDay").val() );
   myBirth.setTime( myNow.getTime() - myBirth.getTime() );
-  
+
   //求めた年月日から基準日を引く
   myYear = myBirth.getUTCFullYear() - $("#birthYear").val();
   myMonth = myBirth.getUTCMonth() - ($("#birthMonth").val() - 1);
@@ -94,7 +94,7 @@ function vaccination1(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "(2期)11歳中に1回";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   if (10 <= userYear && userYear <= 11 ){
     //10≦年齢≦11の場合、表示
@@ -104,7 +104,7 @@ function vaccination1(userAge) {
     recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -121,7 +121,7 @@ function vaccination2(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "9歳中に１回（1期追加接種終了後おおむね5年後）";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   if (8 <= userYear && userYear <= 9 ){
     //8≦年齢≦9の場合、表示
@@ -131,7 +131,7 @@ function vaccination2(userAge) {
     recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -149,7 +149,7 @@ function vaccination3(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "中学1年生の間に3回";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   if (11 <= userYear && userYear <= 13 ){
     //11≦年齢≦13の場合、表示
@@ -159,7 +159,7 @@ function vaccination3(userAge) {
     recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -179,14 +179,14 @@ function vaccination4(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "生後12か月（13か月未満）までに３回受診することができます";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   if (userYear == 0){
     //年齢＝0の場合、表示・推奨
     displayFlg = true;
     recommendFlg = true;
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -203,7 +203,7 @@ function vaccination5(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "生後5か月～8か月未満の間に１回";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
   if (userYear == 0 && userMonth <= 7 ){
@@ -214,7 +214,7 @@ function vaccination5(userAge) {
     recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -232,10 +232,10 @@ function vaccination6(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
-  
+
   if (userYear == 0 && userMonth <= 6 ){
     //0歳0ヶ月≦年齢≦0歳6ヶ月の場合、表示(初回)
     displayFlg = true;
@@ -253,7 +253,7 @@ function vaccination6(userAge) {
       recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -271,10 +271,10 @@ function vaccination7(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
-  
+
   if (userYear == 0 && userMonth <= 6 ){
     //0歳0ヶ月≦年齢≦0歳6ヶ月の場合、表示(初回)
     displayFlg = true;
@@ -292,7 +292,7 @@ function vaccination7(userAge) {
       recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -310,10 +310,10 @@ function vaccination8(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
-  
+
   if ((userYear == 0 && userMonth <= 11) || (userYear == 1 && userMonth <= 0) ){
     //0歳0ヶ月≦年齢≦1歳0ヶ月の場合、表示(初回)
     displayFlg = true;
@@ -331,7 +331,7 @@ function vaccination8(userAge) {
       recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -351,10 +351,10 @@ function vaccination9(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
-  
+
   if ((userYear == 0 && userMonth <= 11) || (userYear == 1 && userMonth <= 0) ){
     //0歳0ヶ月≦年齢≦1歳0ヶ月の場合、表示(初回)
     displayFlg = true;
@@ -372,7 +372,7 @@ function vaccination9(userAge) {
       recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -390,10 +390,10 @@ function vaccination10(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
-  
+
   if ((userYear == 0 && userMonth <= 6) || (userYear == 1 && userMonth <= 0) ){
     //0歳6ヶ月≦年齢≦2歳0ヶ月の場合、表示(初回)
     displayFlg = true;
@@ -411,7 +411,7 @@ function vaccination10(userAge) {
       recommendFlg = true;
     }
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }
 
@@ -429,10 +429,10 @@ function vaccination11(userAge) {
   var displayFlg = false;
   var recommendFlg = false;
   var recommendedTime = "";
-  
+
   var userYear = Number(userAge.year);  //年齢取得
   var userMonth = Number(userAge.month);  //年齢取得
-  
+
   if (2 <= userYear && userYear < 3 ){
     //2歳≦年齢≦3歳の場合、表示(初回)
     displayFlg = true;
@@ -445,7 +445,7 @@ function vaccination11(userAge) {
     //3歳の場合
     displayFlg = true;
     recommendFlg = true;
-    recommendedTime = "[初回]生後12か月～24か月未満の間に1回\r\n"+
+    recommendedTime = "[初回]生後12か月～24か月未満の間に1回 \r\n"+
                       "[初回追加]5歳～7歳未満で、小学校入学1年前の4月1日から入学の年の3月31日まで間に1回";
   }else if (userYear == 4) {
     //4歳の場合、表示
@@ -453,6 +453,6 @@ function vaccination11(userAge) {
     recommendFlg = true;
     recommendedTime = "[初回追加]5歳～7歳未満で、小学校入学1年前の4月1日から入学の年の3月31日まで間に1回";
   }
-  
+
   return new vaccination(id, name, displayFlg, recommendFlg, recommendedTime);
 }

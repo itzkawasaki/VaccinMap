@@ -85,9 +85,9 @@ function markHospital(list, callback) {
             + data[i].hospitalName + "</a><br />" + data[i].address.toOneByteAlphaNumeric() + "<br />tel:" + data[i].tel;  //吹き出しに表示する情報
           createMarker(latlng, content, icons, map);
           markerBounds.extend(pos); // マーカー領域を更新する
-          $("#best5list").append("<li>" + data[i].hospitalName + "</>");  //リストに病院名を入れる
+//          $("#best5list").append("<li>" + data[i].hospitalName + "</>");  //リストに病院名を入れる
           //リターン用病院情報
-          var hospital = new HospitalData(data[i].hospitalName, data[i].address, data[i].tel, data[i].latitude, data[i].longitude);
+          var hospital = new HospitalData(hospitalIdArray[i], data[i].hospitalName, data[i].address, data[i].tel, data[i].latitude, data[i].longitude);
           rtnList.push(hospital);
         }
 
@@ -96,8 +96,8 @@ function markHospital(list, callback) {
 
       //リストクリックイベント
       $(function () {
-        $('#best5list tr').click(function () {
-          var no = $('#best5list tr').index(this);
+        $('#best5list')[i].row.click(function () {
+          var no = $('#best5list')[i].row.index(this);
           google.maps.event.trigger(maplist[no], "click");
         });
       });
@@ -232,8 +232,10 @@ String.prototype.toOneByteAlphaNumeric = function(){
 /**
  *病院オブジェクト
  */
-var HospitalData = function (name, address, tel, latitude, longitude) {
-  this.byoin = name;
+var hospitalIdArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var HospitalData = function (id, byoin, address, tel, latitude, longitude) {
+  this.id = id;
+  this.byoin = byoin;
   this.address = address;
   this.tel = tel;
   this.latitude = latitude;

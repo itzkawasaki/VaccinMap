@@ -86,7 +86,7 @@
 				</div>
 
                 <hr>
-                <blockquote class="menu-title"><h5>住所から近くを調べる</h5></blockquote>
+
                 <div class="input-prepend input-append">
                     <span class="add-on">横浜市</span>
                     <input id="address" type="textbox" value="" class="" data-bind='value: inputAddress'>
@@ -103,9 +103,9 @@
                         </tr>
                       </thead>
                       <tbody id="best5list" data-bind="foreach: items" >
-                        <tr >
+                        <tr data-bind="attr: {'id':id}">
                           <td data-bind="text:hospital"></td>
-                          <td><small  data-bind="text:address"></small></td>
+                          <td><small  data-bind="text:address"></small> id: <span data-bind="text:id"></span></td>
                           <td>
                                <a data-bind="attr: { href: tel_a, target: '_blank' }">
                                    <span data-bind="text:tel"></span>
@@ -158,6 +158,7 @@ function Item(data) {
     this.address = ko.observable(data.address);
     this.tel =  ko.observable(data.tel);
     this.tel_a =  ko.observable('tel:');
+    this.id =  ko.observable(data.id);
 }
 /*
 function Item(data) {
@@ -206,25 +207,9 @@ function AppViewModel() {
                                     //.extend({ throttle: 800 });
 
     self.serchKeyword.subscribe(function (val) {
-       self.search();
+       //self.search();
        self.getHospital();
     });
-
-    self.search = function() {
-	    var keyword = self.serchKeyword();
-	    if( keyword == "" ) {
-	      self.items([]);
-	      return;
-	    }
-
-	    self.items.removeAll();
-
-	    $.getJSON("/b.hatena/"+keyword+".json", function(data) {
-	        self.items($.map(data, function(item) { return new Item(item) }));
-	    });
-    };
-
-    self.search();
 
 
       //-------------------------予防接種のスケジュールリスト-------------------------
@@ -247,7 +232,7 @@ function AppViewModel() {
 	      self.vaccinScheduleList($.map(data, function(item) { return new VaccinItem(item) }));
       };
 
-    self.getVaccinSchedule();
+    //self.getVaccinSchedule();
 
     self.clickVaccin = function(data) {
         //クリックしたワクチン名を取得
@@ -268,19 +253,14 @@ function AppViewModel() {
 	      return;
 	    }
 
-	    //self.items.removeAll();
+	    self.items.removeAll();
 
 	    $.getJSON("/b.hatena/"+keyword+".json", function(data) {
 	    	markHospital(data,function(hospitals){
 	    		self.items($.map(hospitals, function(item) { return new Item(item) }));
 	    	});
-
-	        //markHospital(data);
 	    });
     };
-
-
-
 
 }
 
